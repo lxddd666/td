@@ -201,6 +201,13 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 	return client
 }
 
+func SetSessionStorage(client *Client, storage clientStorage) *Client {
+	if storage != nil {
+		client.storage = storage
+	}
+	return client
+}
+
 // init sets fields which needs explicit initialization, like maps or channels.
 func (c *Client) init() {
 	if c.domains == nil {
