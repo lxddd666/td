@@ -208,6 +208,14 @@ func SetSessionStorage(client *Client, storage clientStorage) *Client {
 	return client
 }
 
+// SetClientStorage Set other Storage to Client
+// It ser storage
+func (c *Client) SetClientStorage(storage clientStorage) {
+	if storage != nil {
+		c.storage = storage
+	}
+}
+
 // init sets fields which needs explicit initialization, like maps or channels.
 func (c *Client) init() {
 	if c.domains == nil {
