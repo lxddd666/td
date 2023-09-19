@@ -173,9 +173,9 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 	}
 
 	if opt.SessionStorage != nil {
-		client.storage = &session.Loader{
+		client = SetSessionStorage(client, &session.Loader{
 			Storage: opt.SessionStorage,
-		}
+		})
 	}
 
 	client.opts = mtproto.Options{
